@@ -1,0 +1,51 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    width: 30.5rem;
+    height: 38rem;
+    background-color: var(--dark-blue);
+    border: 1px solid var(--grey-300);
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 2fr repeat(5, 1fr);
+    gap: .5rem;
+    padding: .5rem;
+}
+
+.screenWrapper {
+    grid-column: 1 / -1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    margin-bottom: .5rem;
+    padding: .5rem;
+    color: var(--white);
+}
+
+.screenPrevious {
+    overflow: hidden;
+    display: inline-block;
+    font-size: 1.6rem;
+    color: var(--grey-300);
+    margin-bottom: .5rem;
+}
+
+.screenCurrent {
+    font-size: 2.4rem;
+}
+
+button {
+    font-size: 2.4rem;
+    color: var(--dark-blue);
+    border-radius: .5rem;
+}

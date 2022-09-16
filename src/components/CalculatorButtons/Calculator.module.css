@@ -1,0 +1,15 @@
+.delete, .divider, .multiplier, .minus, .plus, .egual {
+    color: var(--white);
+} 
+
+.divider, .multiplier, .minus, .plus {
+    background-color: var(--orange-500);
+}
+
+.egual {
+    background-color: var(--blue-500);
+}
+
+.delete {
+    background-color: var(--red-500);
+}
