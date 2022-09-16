@@ -35,13 +35,13 @@
 .screenPrevious {
     overflow: hidden;
     display: inline-block;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--grey-300);
     margin-bottom: .5rem;
 }
 
 .screenCurrent {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
 }
 
 button {

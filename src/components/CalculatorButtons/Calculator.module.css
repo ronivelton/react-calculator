@@ -1,12 +1,12 @@
-.delete, .division, .multiple, .subtract, .add, .equal {
+.delete, .divisionOperation, .multipleOperation, .subtractOperation, .addOperation, .equalOperation {
     color: var(--white);
 } 
 
-.division, .multiple, .subtract, .add {
+.divisionOperation, .multipleOperation, .subtractOperation, .addOperation {
     background-color: var(--orange-500);
 }
 
-.equal {
+.equalOperation {
     background-color: var(--blue-500);
 }
 
