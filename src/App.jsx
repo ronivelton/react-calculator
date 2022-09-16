@@ -6,7 +6,10 @@ import CalculatorButtons from "./components/CalculatorButtons"
 
 function App() {
   const [currentNumber, setCurrentNumber] = useState("0")
+
   const [previousNumber, setPreviousNumber] = useState("")
+
+  const [operator, setOperator] = useState("")
 
 
   const handleInputValue = (event) => {
@@ -18,6 +21,22 @@ function App() {
       case "number":
         if (currentNumber === "0" && element.innerHTML !== "0") setCurrentNumber(element.innerHTML)
         else if (currentNumber !== "0") setCurrentNumber(currentNumber + element.innerHTML)
+        break
+      case "delete":
+        if(currentNumber.length === 1) setCurrentNumber("0")
+        else setCurrentNumber(currentNumber.slice(0, -1))
+        break
+      case "plus":
+        if (previousNumber) {
+          const result = Number(previousNumber) + Number(currentNumber)
+          setCurrentNumber(result)
+          setPreviousNumber("")
+          setOperator("")
+        }
+        else {
+          setPreviousNumber(currentNumber)
+          setOperator("+")
+        }
         break
     }
 
@@ -31,6 +50,7 @@ function App() {
         <div className={styles.screenWrapper}>
             <span className={styles.screenPrevious}>
               {previousNumber}
+              {operator}
             </span>
             <span className={styles.screenCurrent}>
                 {currentNumber}
@@ -39,7 +59,7 @@ function App() {
 
             <CalculatorButtons type="porcentage">%</CalculatorButtons>
             <CalculatorButtons type="deleteAll">C</CalculatorButtons>
-            <CalculatorButtons type="delete">DEL</CalculatorButtons>
+            <CalculatorButtons handleInputValue = {handleInputValue} type="delete">DEL</CalculatorButtons>
             <CalculatorButtons type="divider">/</CalculatorButtons>
 
             <CalculatorButtons handleInputValue = {handleInputValue} type="number">7</CalculatorButtons>
@@ -55,7 +75,7 @@ function App() {
             <CalculatorButtons handleInputValue = {handleInputValue} type="number">1</CalculatorButtons>
             <CalculatorButtons handleInputValue = {handleInputValue} type="number">2</CalculatorButtons>
             <CalculatorButtons handleInputValue = {handleInputValue} type="number">3</CalculatorButtons>
-            <CalculatorButtons type="plus">+</CalculatorButtons>
+            <CalculatorButtons handleInputValue = {handleInputValue} type="plus">+</CalculatorButtons>
 
             <CalculatorButtons type="sign">+/-</CalculatorButtons>
             <CalculatorButtons handleInputValue = {handleInputValue} type="number">0</CalculatorButtons>
