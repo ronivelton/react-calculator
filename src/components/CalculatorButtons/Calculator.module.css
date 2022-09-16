@@ -1,12 +1,12 @@
-.delete, .divider, .multiplier, .minus, .plus, .egual {
+.delete, .division, .multiple, .subtract, .add, .equal {
     color: var(--white);
 } 
 
-.divider, .multiplier, .minus, .plus {
+.division, .multiple, .subtract, .add {
     background-color: var(--orange-500);
 }
 
-.egual {
+.equal {
     background-color: var(--blue-500);
 }
 
