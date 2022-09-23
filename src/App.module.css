@@ -54,6 +54,8 @@ button {
     border-radius: .5rem;
     cursor: pointer;
     transition: opacity 125ms ease-in-out;
+    min-width: 7rem;
+    height: 5rem;
 }
 
 button:hover {
