@@ -1,33 +1,34 @@
-import React, { useReducer } from 'react'
+import React, { useReducer } from "react";
 
-import styles from "./App.module.css"
+import styles from "./App.module.css";
 
-import CalculatorButtons from "./components/CalculatorButtons"
+import CalculatorButtons from "./components/CalculatorButtons";
 
-import reducer from './reducers/calculatorReducer'
+import reducer from "./reducers/calculatorReducer";
 
-import { ACTIONS_TYPES } from './actions/calculatorActions'
+import { ACTIONS_TYPES } from "./actions/calculatorActions";
 
-export const  initialState = {
+export const initialState = {
   currentNumber: "0",
   previousNumber: null,
-  operation: null
-}
+  operation: null,
+};
 
+// prettier-ignore
 function App() {
   const [ {currentNumber, previousNumber, operation}, dispatch] = useReducer(reducer, initialState)
 
 
   return (
     <>
-      <div className={styles.app}>
+      <div id='app' className={styles.app}>
         <main className={styles.calculator}>
 
-          <div className={styles.screenWrapper}>
-            <span className={styles.screenPrevious}>
+          <div id='display' className={styles.screenWrapper}>
+            <span id="display-previous" className={styles.screenPrevious}>
               {previousNumber} {operation}
             </span>
-            <span className={styles.screenCurrent}>
+            <span id="display-current" className={styles.screenCurrent}>
                 {currentNumber}
             </span>
           </div>
@@ -55,7 +56,6 @@ function App() {
           <CalculatorButtons dispatch = {dispatch} type={ACTIONS_TYPES.addNumber}>0</CalculatorButtons>
           <CalculatorButtons dispatch = {dispatch} type={ACTIONS_TYPES.dot}>.</CalculatorButtons>
           <CalculatorButtons dispatch = {dispatch} type={ACTIONS_TYPES.equalOperation}>=</CalculatorButtons>
-        
         </main>
 
         <footer>Made by <a href="https://github.com/ronivelton"><strong>Roni</strong></a></footer>
@@ -66,4 +66,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
