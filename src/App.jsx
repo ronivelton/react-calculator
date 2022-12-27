@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 
 import styles from "./App.module.css";
 
@@ -17,7 +17,26 @@ export const initialState = {
 // prettier-ignore
 function App() {
   const [ {currentNumber, previousNumber, operation}, dispatch] = useReducer(reducer, initialState)
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      // verify if the key pressed is numeric
+      if (/^\d$/.test(e.key)) dispatch({type: ACTIONS_TYPES.addNumber, payload: {digit: e.key}})
 
+      if(e.key === "+" ) dispatch({type: ACTIONS_TYPES.addOperation, payload: {digit: e.key}})
+      if(e.key === "-" ) dispatch({type: ACTIONS_TYPES.subtractOperation, payload: {digit: e.key}})
+      if(e.key === "Enter") dispatch({type: ACTIONS_TYPES.equalOperation, payload: {digit: e.key}})
+      if(e.key === "/" ) dispatch({type: ACTIONS_TYPES.divisionOperation, payload: {digit: e.key}})
+      if(e.key === "*" ) dispatch({type: ACTIONS_TYPES.multipleOperation, payload: {digit: e.key}})
+      if(e.key === "Escape" ) dispatch({type: ACTIONS_TYPES.deleteAll})
+      if(e.key === "Backspace" ) dispatch({type: ACTIONS_TYPES.delete})
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [dispatch]);
 
   return (
     <>
