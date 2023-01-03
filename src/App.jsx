@@ -24,7 +24,7 @@ function App() {
 
       if(e.key === "+" ) dispatch({type: ACTIONS_TYPES.addOperation, payload: {digit: e.key}})
       if(e.key === "-" ) dispatch({type: ACTIONS_TYPES.subtractOperation, payload: {digit: e.key}})
-      if(e.key === "Enter") dispatch({type: ACTIONS_TYPES.equalOperation, payload: {digit: e.key}})
+      if(e.key === "Enter") dispatch({type: ACTIONS_TYPES.equalOperation, payload: {digit: "="}})
       if(e.key === "/" ) dispatch({type: ACTIONS_TYPES.divisionOperation, payload: {digit: e.key}})
       if(e.key === "*" ) dispatch({type: ACTIONS_TYPES.multipleOperation, payload: {digit: e.key}})
       if(e.key === "Escape" ) dispatch({type: ACTIONS_TYPES.deleteAll})
@@ -37,6 +37,8 @@ function App() {
       window.removeEventListener("keydown", handleKeyPress);
     };
   }, [dispatch]);
+
+  console.log(currentNumber)
 
   return (
     <>
