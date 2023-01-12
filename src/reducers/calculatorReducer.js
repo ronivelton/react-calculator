@@ -49,7 +49,7 @@ export default function reducer(state, { type, payload }) {
   switch (type) {
     // Add digit
     case ACTIONS_TYPES.addNumber:
-      // If the last operation made was the equal operation, then a need clear the screen for nexts digits
+      // If the last operation made was the equal operation, then  clear the screen for nexts digits
       if (state.operation === "=")
         return {
           currentNumber: payload.digit,
