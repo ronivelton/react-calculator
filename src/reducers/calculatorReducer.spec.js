@@ -37,4 +37,40 @@ describe("Math operations", () => {
     expect(newState.previousNumber).toBe("1 + 1");
     expect(newState.operation).toBe("=");
   });
+  it("Should sum 1 - 1 correctly", () => {
+    const newState = reducer(
+      { currentNumber: "1", previousNumber: "1", operation: "-" },
+      {
+        type: ACTIONS_TYPES.equalOperation,
+        payload: { digit: "=" },
+      }
+    );
+    expect(newState.currentNumber).toBe("0");
+    expect(newState.previousNumber).toBe("1 - 1");
+    expect(newState.operation).toBe("=");
+  });
+  it("Should sum 2 * 2 correctly", () => {
+    const newState = reducer(
+      { currentNumber: "2", previousNumber: "2", operation: "*" },
+      {
+        type: ACTIONS_TYPES.equalOperation,
+        payload: { digit: "=" },
+      }
+    );
+    expect(newState.currentNumber).toBe("4");
+    expect(newState.previousNumber).toBe("1 x 1");
+    expect(newState.operation).toBe("=");
+  });
+  it("Should sum 2 / 2 correctly", () => {
+    const newState = reducer(
+      { currentNumber: "2", previousNumber: "2", operation: "/" },
+      {
+        type: ACTIONS_TYPES.equalOperation,
+        payload: { digit: "=" },
+      }
+    );
+    expect(newState.currentNumber).toBe("1");
+    expect(newState.previousNumber).toBe("2 / 2");
+    expect(newState.operation).toBe("=");
+  });
 });
